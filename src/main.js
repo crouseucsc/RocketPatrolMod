@@ -1,7 +1,7 @@
 // Christian Rouse
 // Rocket Patrol Mod
-// 16 April 2021
-// Time: Approximately 7 hours
+// 21 April 2021
+// Time: Approximately N/A hours
 let config = {
   type: Phaser.AUTO,
   width: 640,
@@ -12,5 +12,4 @@ let game = new Phaser.Game(config);
 let borderUISize = game.config.height / 15;
 let borderPadding = borderUISize / 3;
 // reserve keyboard vars
-let keyF, keyR, keyLEFT, keyRIGHT;
-let keyW, keyS, keyA, keyD;
+let keyF, keyR, keyLEFT, keyRIGHT, keyW, keyS, keyA, keyD;
