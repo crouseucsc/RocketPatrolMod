@@ -1,5 +1,5 @@
 // Christian Rouse
-// Rocket Patrol
+// Rocket Patrol Mod
 // 16 April 2021
 // Time: Approximately 7 hours
 let config = {
@@ -13,3 +13,4 @@ let borderUISize = game.config.height / 15;
 let borderPadding = borderUISize / 3;
 // reserve keyboard vars
 let keyF, keyR, keyLEFT, keyRIGHT;
+let keyW, keyS, keyA, keyD;
