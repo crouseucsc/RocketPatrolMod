@@ -6,13 +6,9 @@ class Menu extends Phaser.Scene {
     }
 
     preload() {
-        this.load.audio('sfx_novice', 'assets/Novice.wav');
-        this.load.audio('sfx_expert', 'assets/Expert.wav');
-        this.load.audio('sfx_explosion', 'assets/explosion38.wav');
-        this.load.audio('sfx_rocket', 'assets/rocket_shot.wav');
-        this.load.audio('music', 'assets/RP_Music.wav');
+        this.load.audio('sfx_explosion', 'assets/assets_explosion38.wav');
+        this.load.audio('sfx_rocket', 'assets/assets_rocket_shot.wav');
         this.load.image('menu_ship', 'assets/spaceship.png');
-        this.load.image('menu_shipTwo', 'assets/fastShip.png');
         this.load.image('p1Rocket', 'assets/p1rocket.png');
         this.load.image('p2Rocket', 'assets/p2rocket.png');
     }

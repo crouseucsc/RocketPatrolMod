@@ -4,54 +4,20 @@ class Play extends Phaser.Scene {
     }
 
     preload() {
-        this.load.image('starfieldRed', 'assets/starfieldRed.png');
-        this.load.image('starfieldBlue', 'assets/starfieldBlue.png');
-        this.load.image('starfieldYellow', 'assets/starfieldYellow.png');
-        this.load.image('starfieldWhite', 'assets/starfieldWhite.png');
+        this.load.image('starfield', 'assets/starfield.png');
         this.load.image('p1Rocket', 'assets/p1rocket.png');
         this.load.image('p2Rocket', 'assets/p2rocket.png');
         this.load.image('spaceship', 'assets/spaceship.png');
-        this.load.image('fastShip', 'assets/fastShip.png');
-        this.load.audio('music', 'assets/RP_Music.wav');
-        this.load.spritesheet(
-            'explosion',
-            'assets/explosion.png', {
-            frameWidth: 64,
-            frameHeight: 32,
-            startFrame: 0,
-            endFrame: 9
-        }
-        );
+        this.load.spritesheet('explosion', 'assets/explosion.png', { frameWidth: 64, frameHeight: 32, startFrame: 0, endFrame: 9 });
     }
 
     create() {
-        this.starfieldW = this.add.tileSprite(
+        this.starfield = this.add.tileSprite(
             0,
             0,
-            1280,
+            720,
             480,
-            'starfieldWhite').setOrigin(0, 0);
-
-        this.starfieldY = this.add.tileSprite(
-            0,
-            0,
-            1280,
-            480,
-            'starfieldYellow').setOrigin(0, 0);
-
-        this.starfieldB = this.add.tileSprite(
-            0,
-            0,
-            1280,
-            480,
-            'starfieldBlue').setOrigin(0, 0);
-
-        this.starfieldR = this.add.tileSprite(
-            0,
-            0,
-            1280,
-            480,
-            'starfieldRed').setOrigin(0, 0);
+            'starfield').setOrigin(0, 0);
 
         this.p1Rocket = new P1Rocket(
             this,
