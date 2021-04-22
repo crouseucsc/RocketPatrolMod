@@ -41,15 +41,7 @@ class Play extends Phaser.Scene {
             0,
             30).setOrigin(0, 0);
 
-        this.ship2 = new fastShip(
-            this,
-            game.config.width + borderUISize * 3,
-            borderUISize * 5 + borderPadding * 2,
-            'fastShip',
-            0,
-            40).setOrigin(0, 0);
-
-        this.ship3 = new Ship(
+        this.ship2 = new Ship(
             this,
             game.config.width,
             borderUISize * 6 + borderPadding * 4,
@@ -57,11 +49,11 @@ class Play extends Phaser.Scene {
             0,
             10).setOrigin(0, 0);
 
-        this.ship4 = new fastShip(
+        this.ship3 = new fastShip(
             this,
             game.config.width - borderUISize * 3,
             borderUISize * 7 + borderPadding * 6,
-            'fastShip',
+            'spaceship',
             0,
             15).setOrigin(0, 0);
 
@@ -202,31 +194,19 @@ class Play extends Phaser.Scene {
         }
 
         if ((keyLEFT.isDown && !this.p2Rocket.isFiring) || (keyA.isDown && !this.p1Rocket.isFiring)) {
-            this.starfieldW.tilePositionX -= 1;
-            this.starfieldY.tilePositionX -= 1.5;
-            this.starfieldB.tilePositionX -= 2;
-            this.starfieldR.tilePositionX -= 3;
+            this.starfield.tilePositionX -= 1;
         }
 
         if ((keyRIGHT.isDown && !this.p2Rocket.isFiring) || (keyD.isDown && !this.p1Rocket.isFiring)) {
-            this.starfieldW.tilePositionX += 1;
-            this.starfieldY.tilePositionX += 1.5;
-            this.starfieldB.tilePositionX += 2;
-            this.starfieldR.tilePositionX += 3;
+            this.starfield.tilePositionX += 1;    
         }
 
         if ((keyLEFT.isDown && !this.p2Rocket.isFiring) || (keyA.isDown && !this.p1Rocket.isFiring)) {
-            this.starfieldW.tilePositionX -= 0.5;
-            this.starfieldY.tilePositionX -= 1;
-            this.starfieldB.tilePositionX -= 1.5;
-            this.starfieldR.tilePositionX -= 2.5;
+            this.starfield.tilePositionX -= 0.5;   
         }
 
         if ((keyRIGHT.isDown && !this.p2Rocket.isFiring) || (keyD.isDown && !this.p1Rocket.isFiring)) {
-            this.starfieldW.tilePositionX += 0.5;
-            this.starfieldY.tilePositionX += 1;
-            this.starfieldB.tilePositionX += 1.5;
-            this.starfieldR.tilePositionX += 2.5;
+            this.starfield.tilePositionX += 0.5;  
         }
 
         if (!this.gameOver) {
@@ -235,17 +215,6 @@ class Play extends Phaser.Scene {
             this.ship1.update();
             this.ship2.update();
             this.ship3.update();
-            this.ship4.update();
-        }
-
-        if (this.checkCollision(this.p1Rocket, this.ship4)) {
-            this.p1Rocket.reset();
-            this.shipExplode(this.ship4);
-            this.p1Score += this.ship4.points;
-            this.scoreLeft.text = this.p1Score;
-
-            return true;
-
         }
 
         if (this.checkCollision(this.p1Rocket, this.ship3)) {
@@ -274,16 +243,6 @@ class Play extends Phaser.Scene {
 
             return true;
         }
-
-        if (this.checkCollision(this.p2Rocket, this.ship4)) {
-            this.p2Rocket.reset();
-            this.shipExplode(this.ship4);
-            this.p2Score += this.ship4.points;
-            this.scoreRight.text = this.p2Score;
-
-            return true;
-        }
-
         if (this.checkCollision(this.p2Rocket, this.ship3)) {
             this.p2Rocket.reset();
             this.shipExplode(this.ship3);
