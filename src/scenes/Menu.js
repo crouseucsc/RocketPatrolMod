@@ -27,19 +27,6 @@ class Menu extends Phaser.Scene {
             100,
             'menu_ship').setOrigin(0.5);
 
-        this.ship1 = this.add.sprite(
-            1030,
-            50,
-            'menu_shipTwo').setOrigin(0.5);
-        this.ship2 = this.add.sprite(
-            1140,
-            50,
-            'menu_shipTwo').setOrigin(0.5);
-        this.ship3 = this.add.sprite(
-            1085,
-            100,
-            'menu_shipTwo').setOrigin(0.5);
-
         this.p1Rocket = this.add.sprite(
             185,
             300,
@@ -126,11 +113,6 @@ class Menu extends Phaser.Scene {
             ' Highest score wins! ',
             menuConfig).setOrigin(0.5);
 
-        if (!this.music) {
-            this.music = this.sound.add('music', { loop: true });
-            this.music.play();
-        }
-
         keyLEFT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.LEFT);
         keyRIGHT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.RIGHT);
     }
@@ -144,7 +126,6 @@ class Menu extends Phaser.Scene {
                 spaceshipSpeed: 3,
                 gameTimer: 60000
             }
-            this.sound.play('sfx_novice');
             this.inMenu = false;
             this.scene.start('playScene');
         }
@@ -153,7 +134,6 @@ class Menu extends Phaser.Scene {
                 spaceshipSpeed: 4,
                 gameTimer: 45000
             }
-            this.sound.play('sfx_expert');
             this.inMenu = false;
             this.scene.start('playScene');
 
