@@ -49,7 +49,7 @@ class Play extends Phaser.Scene {
             0,
             10).setOrigin(0, 0);
 
-        this.ship3 = new fastShip(
+        this.ship3 = new Ship(
             this,
             game.config.width - borderUISize * 3,
             borderUISize * 7 + borderPadding * 6,
