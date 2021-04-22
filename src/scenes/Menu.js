@@ -13,8 +13,8 @@ class Menu extends Phaser.Scene {
         this.load.audio('music', 'assets/RP_Music.wav');
         this.load.image('menu_ship', 'assets/spaceship.png');
         this.load.image('menu_shipTwo', 'assets/fastShip.png');
-        this.load.image('p1Rocket', 'assets/p1Rocket.png');
-        this.load.image('p2Rocket', 'assets/p2Rocket.png');
+        this.load.image('p1Rocket', 'assets/p1rocket.png');
+        this.load.image('p2Rocket', 'assets/p2rocket.png');
     }
 
     create() {
