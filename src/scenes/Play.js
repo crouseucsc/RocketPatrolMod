@@ -198,15 +198,15 @@ class Play extends Phaser.Scene {
         }
 
         if ((keyRIGHT.isDown && !this.p2Rocket.isFiring) || (keyD.isDown && !this.p1Rocket.isFiring)) {
-            this.starfield.tilePositionX += 1;    
+            this.starfield.tilePositionX += 1;
         }
 
         if ((keyLEFT.isDown && !this.p2Rocket.isFiring) || (keyA.isDown && !this.p1Rocket.isFiring)) {
-            this.starfield.tilePositionX -= 0.5;   
+            this.starfield.tilePositionX -= 0.5;
         }
 
         if ((keyRIGHT.isDown && !this.p2Rocket.isFiring) || (keyD.isDown && !this.p1Rocket.isFiring)) {
-            this.starfield.tilePositionX += 0.5;  
+            this.starfield.tilePositionX += 0.5;
         }
 
         if (!this.gameOver) {
