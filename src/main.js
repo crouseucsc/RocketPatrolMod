@@ -1,6 +1,6 @@
 let config = {
-  type: Phaser.AUTO,
-  width: 720,
+  type: Phaser.CANVAS,
+  width: 1280,
   height: 480,
   scene: [Menu, Play],
 }
