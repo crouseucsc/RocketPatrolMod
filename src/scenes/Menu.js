@@ -1,5 +1,4 @@
 
-
 class Menu extends Phaser.Scene {
     constructor() {
         super("menuScene");
@@ -8,7 +7,7 @@ class Menu extends Phaser.Scene {
     preload() {
         this.load.audio('sfx_explosion', 'assets/assets_explosion38.wav');
         this.load.audio('sfx_rocket', 'assets/assets_rocket_shot.wav');
-        this.load.image('menu_ship', 'assets/spaceship.png');
+        this.load.image('menu_ship', 'assets/jet.png');
         this.load.image('p1Rocket', 'assets/p1rocket.png');
         this.load.image('p2Rocket', 'assets/p2rocket.png');
     }
