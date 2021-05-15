@@ -105,8 +105,6 @@ class Menu extends Phaser.Scene {
     }
 
     update() {
-        this.ship1.spritePositionY -= 4;
-        this.ship1.spritePositionY += 4;
 
         if (Phaser.Input.Keyboard.JustDown(keyLEFT)) {
             game.settings = {
