@@ -31,7 +31,7 @@ class Play extends Phaser.Scene {
         this.add.rectangle(0, 0, borderUISize, game.config.height, 0xFFFFFF).setOrigin(0, 0);
         this.add.rectangle(game.config.width - borderUISize, 0, borderUISize, game.config.height, 0xFFFFFF).setOrigin(0, 0);
 
-        //Add keyboard contols to play scene.
+        //Add keyboard controls to play scene.
         keyR = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.R); //Restart
         keyUP = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.UP); //Player 1 up/fire.
         keyLEFT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.LEFT); //Player 1 move left.
@@ -82,19 +82,19 @@ class Play extends Phaser.Scene {
         }
 
         if ((keyLEFT.isDown && !this.p2Rocket.isFiring) || (keyA.isDown && !this.p1Rocket.isFiring)) {
-            this.starfield.tilePositionX -= 1;
+            this.skyfield.tilePositionX -= 1;
         }
 
         if ((keyRIGHT.isDown && !this.p2Rocket.isFiring) || (keyD.isDown && !this.p1Rocket.isFiring)) {
-            this.starfield.tilePositionX += 1;
+            this.skyfield.tilePositionX += 1;
         }
 
         if ((keyLEFT.isDown && !this.p2Rocket.isFiring) || (keyA.isDown && !this.p1Rocket.isFiring)) {
-            this.starfield.tilePositionX -= 0.5;
+            this.skyfield.tilePositionX -= 0.5;
         }
 
         if ((keyRIGHT.isDown && !this.p2Rocket.isFiring) || (keyD.isDown && !this.p1Rocket.isFiring)) {
-            this.starfield.tilePositionX += 0.5;
+            this.skyfield.tilePositionX += 0.5;
         }
 
         if (!this.gameOver) {
