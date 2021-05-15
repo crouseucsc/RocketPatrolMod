@@ -13,19 +13,7 @@ class Menu extends Phaser.Scene {
     }
 
     create() {
-        this.ship1 = this.add.sprite(
-            130,
-            50,
-            'menu_ship').setOrigin(0.5);
-        this.ship2 = this.add.sprite(
-            240,
-            50,
-            'menu_ship').setOrigin(0.5);
-        this.ship3 = this.add.sprite(
-            185,
-            100,
-            'menu_ship').setOrigin(0.5);
-
+        
         this.p1Rocket = this.add.sprite(
             185,
             300,

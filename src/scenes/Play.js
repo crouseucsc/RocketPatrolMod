@@ -22,7 +22,7 @@ class Play extends Phaser.Scene {
         //Render target jets.
         this.ship1 = new Ship(this, game.config.width + borderUISize * 6, borderUISize * 4, 'jet', 0, 0).setOrigin(0, 0); //Spawn coordinate.
         this.ship2 = new Ship(this, game.config.width, borderUISize * 6 + borderPadding * 50, 'jet', 0, 0).setOrigin(0, 0); //Spawn coordinate.
-        this.ship3 = new Ship(this, game.config.width - borderUISize * 3, borderUISize * 100 + borderPadding * 6, 'jet', 0, 0).setOrigin(0, 0); //Spawn coordinate.
+        this.ship3 = new Ship(this, game.config.width - borderUISize * 3, borderUISize * 7 + borderPadding * 100, 'jet', 0, 0).setOrigin(0, 0); //Spawn coordinate.
 
         //Render Heads-Up Display/User Interface (HUD/UI).
         this.add.rectangle(0, borderUISize + borderPadding, game.config.width, borderUISize * 2, 0xff89d5d1).setOrigin(0, 0);
@@ -45,13 +45,40 @@ class Play extends Phaser.Scene {
 
         //Track player one score. 
         this.p1Score = 0; //Set initial score to zero.
-        let p1ScoreConfig = { fontFamily: 'Courier', fontSize: '28px', backgroundColor: '#eb7380', color: 'white', align: 'right', padding: { top: 5, bottom: 5 }, fixedWidth: 100 } //Player one score display location, design, and text-alignment.
-        this.scoreLeft = this.add.text(borderUISize + borderPadding, borderUISize + borderPadding * 2, this.p1Score, p1ScoreConfig);
+        let p1ScoreConfig = {
+            fontFamily: 'Courier',
+            fontSize: '28px',
+            backgroundColor: '#eb7380',
+            color: 'white',
+            align: 'right',
+            padding: { top: 5, bottom: 5 },
+            fixedWidth: 100
+        }
+        //Player one score display location, design, and text-alignment.
+        this.scoreLeft = this.add.text(
+            borderUISize + borderPadding,
+            borderUISize + borderPadding * 2,
+            this.p1Score,
+            p1ScoreConfig);
 
         //Track player two score.
         this.p2Score = 0; //Set initial score to zero. 
-        let p2ScoreConfig = { fontFamily: 'Courier', fontSize: '28px', backgroundColor: '#b689d5', color: 'white', align: 'left', padding: { top: 5, bottom: 5, }, fixedWidth: 100 } //Player two score display location, design, and text-alignment.
-        this.scoreRight = this.add.text(borderUISize + borderPadding * 363.5, borderUISize + borderPadding * 2, this.p2Score, p2ScoreConfig);
+        let p2ScoreConfig = {
+            fontFamily: 'Courier',
+            fontSize: '28px',
+            backgroundColor: '#b689d5',
+            color: 'white',
+            align: 'left',
+            padding: { top: 5, bottom: 5, },
+            fixedWidth: 100
+        }
+        
+        //Player two score display location, design, and text-alignment.
+        this.scoreRight = this.add.text(
+            borderUISize + borderPadding * 363.5,
+            borderUISize + borderPadding * 2,
+            this.p2Score,
+            p2ScoreConfig);
 
 
         //Display text to "FIRE!"
