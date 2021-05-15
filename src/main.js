@@ -5,8 +5,8 @@
 //19 April 2021 17:00
 let config = {
   type: Phaser.CANVAS,
-  width: 1280,
-  height: 480,
+  width: 1920,
+  height: 1080,
   scene: [Menu, Play],
 }
 

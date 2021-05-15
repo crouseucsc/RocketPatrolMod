@@ -13,7 +13,7 @@ class Play extends Phaser.Scene {
 
     create() {
         //Render background.
-        this.skyfield = this.add.tileSprite(0, 0, 720, 480, 'skyfield').setOrigin(0, 0); //Background dimensions and center-point. 
+        this.skyfield = this.add.tileSprite(0, 0, 1920, 1080, 'skyfield').setOrigin(0, 0); //Background dimensions and center-point. 
 
         //Render player one and player two rockets.
         this.p1Rocket = new P1Rocket(this, game.config.width / 2 - 20, game.config.height - borderUISize - borderPadding, 'p1Rocket'); //Spawn coordinate.
@@ -45,58 +45,22 @@ class Play extends Phaser.Scene {
 
         //Track player one score. 
         this.p1Score = 0; //Set initial score to zero.
-        let p1ScoreConfig = { fontFamily: 'Courier', fontSize: '28px', backgroundColor: '#eb7380', color: 'white', align: 'right', padding: { top: 5, bottom: 5 }, fixedWidth: 100 }; //Player one score display location, design, and text-alignment.
-        this.scoreLeft = this.add.text(
-            borderUISize + borderPadding,
-            borderUISize + borderPadding * 2,
-            this.p1Score,
-            p1ScoreConfig);
+        let p1ScoreConfig = { fontFamily: 'Courier', fontSize: '28px', backgroundColor: '#eb7380', color: 'white', align: 'right', padding: { top: 5, bottom: 5 }, fixedWidth: 100 } //Player one score display location, design, and text-alignment.
+        this.scoreLeft = this.add.text(borderUISize + borderPadding, borderUISize + borderPadding * 2, this.p1Score, p1ScoreConfig);
 
-        this.p2Score = 0;
-        let p2ScoreConfig = {
-            fontFamily: 'Courier',
-            fontSize: '28px',
-            backgroundColor: '#b689d5',
-            color: 'white',
-            align: 'left',
-            padding: {
-                top: 5,
-                bottom: 5,
-            },
-            fixedWidth: 100
-        }
-
-        this.scoreRight = this.add.text(
-            borderUISize + borderPadding * 103.5,
-            borderUISize + borderPadding * 2,
-            this.p2Score,
-            p2ScoreConfig);
+        //Track player two score.
+        this.p2Score = 0; //Set initial score to zero. 
+        let p2ScoreConfig = { fontFamily: 'Courier', fontSize: '28px', backgroundColor: '#b689d5', color: 'white', align: 'left', padding: { top: 5, bottom: 5, }, fixedWidth: 100 } //Player two score display location, design, and text-alignment.
+        this.scoreRight = this.add.text(borderUISize + borderPadding * 103.5, borderUISize + borderPadding * 2, this.p2Score, p2ScoreConfig);
 
 
+        //Display text to "FIRE!"
+        let textDisplay = { fontFamily: 'Copperplate', fontSize: '28px', backgroundColor: '#89d5d1', color: 'black', align: 'right', padding: { top: 5, bottom: 5, }, fixedWidth: 100 } //..
+        this.fireUI = this.add.text(borderUISize + borderPadding * 52, borderUISize + borderPadding * 2, 'FIRE!', textDisplay);
+        textDisplay.fixedWidth = 0; //??
 
-        let textDisplay = {
-            fontFamily: 'Copperplate',
-            fontSize: '28px',
-            backgroundColor: '#89d5d1',
-            color: 'black',
-            align: 'right',
-            padding: {
-                top: 5,
-                bottom: 5,
-            },
-            fixedWidth: 100
-        }
-
-        this.fireUI = this.add.text(
-            borderUISize + borderPadding * 52,
-            borderUISize + borderPadding * 2,
-            'FIRE!',
-            textDisplay);
-
-        textDisplay.fixedWidth = 0;
-
+        //Game Over
         this.gameOver = false;
-
         this.clock = this.time.delayedCall(
             game.settings.gameTimer, () => {
                 if (this.p1Score > this.p2Score) {
