@@ -5,14 +5,14 @@
 //19 April 2021 17:00
 let config = {
   type: Phaser.CANVAS,
-  width: 1280,
-  height: 720,
+  width: 1366,
+  height: 768,
   scene: [Menu, Play],
 }
 
 let game = new Phaser.Game(config);
 
-let borderUISize = game.config.height / 72;
+let borderUISize = game.config.height / 100;
 // let borderPadding = borderUISize / 3;
 
 let keyLEFT, keyRIGHT, keyUP, keyW, keyR, keyA, keyD;
