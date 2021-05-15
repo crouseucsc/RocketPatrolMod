@@ -13,10 +13,10 @@ class Play extends Phaser.Scene {
 
     create() {
         //Render background.
-        this.skyfield = this.add.tileSprite(0, 0, 1920, 1080, 'skyfield').setOrigin(0, 0); //Background dimensions and center-point. 
+        this.skyfield = this.add.tileSprite(0, 0, 1280, 720, 'skyfield').setOrigin(0, 0); //Background dimensions and center-point. 
 
         //Render player one and player two rockets.
-        this.p1Rocket = new P1Rocket(this, game.config.width / 2 - 20, game.config.height - borderUISize - borderPadding, 'p1Rocket'); //Spawn coordinate.
+        this.p1Rocket = new P1Rocket(this, game.config.width / 2 - 60, game.config.height - borderUISize - borderPadding, 'p1Rocket'); //Spawn coordinate.
         this.p2Rocket = new P2Rocket(this, game.config.width / 2 + 20, game.config.height - borderUISize - borderPadding, 'p2Rocket'); //Spawn coordinate.
 
         //Render target jets.
