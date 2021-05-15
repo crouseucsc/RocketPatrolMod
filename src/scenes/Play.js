@@ -20,9 +20,9 @@ class Play extends Phaser.Scene {
         this.p2Rocket = new P2Rocket(this, game.config.width / 2 + 341, game.config.height - borderUISize - borderPadding, 'p2Rocket'); //Spawn coordinate.
 
         //Render target jets.
-        this.ship1 = new Ship(this, game.config.width + borderUISize * 6, borderUISize * 4, 'jet', 0, 30).setOrigin(0, 0); //Spawn coordinate.
-        this.ship2 = new Ship(this, game.config.width, borderUISize * 6 + borderPadding * 4, 'jet', 0, 10).setOrigin(0, 0); //Spawn coordinate.
-        this.ship3 = new Ship(this, game.config.width - borderUISize * 3, borderUISize * 7 + borderPadding * 6, 'jet', 0, 15).setOrigin(0, 0); //Spawn coordinate.
+        this.ship1 = new Ship(this, game.config.width + borderUISize * 6, borderUISize * 4, 'jet', 0, 0).setOrigin(0, 0); //Spawn coordinate.
+        this.ship2 = new Ship(this, game.config.width, borderUISize * 6 + borderPadding * 50, 'jet', 0, 0).setOrigin(0, 0); //Spawn coordinate.
+        this.ship3 = new Ship(this, game.config.width - borderUISize * 3, borderUISize * 100 + borderPadding * 6, 'jet', 0, 0).setOrigin(0, 0); //Spawn coordinate.
 
         //Render Heads-Up Display/User Interface (HUD/UI).
         this.add.rectangle(0, borderUISize + borderPadding, game.config.width, borderUISize * 2, 0xff89d5d1).setOrigin(0, 0);
@@ -51,12 +51,12 @@ class Play extends Phaser.Scene {
         //Track player two score.
         this.p2Score = 0; //Set initial score to zero. 
         let p2ScoreConfig = { fontFamily: 'Courier', fontSize: '28px', backgroundColor: '#b689d5', color: 'white', align: 'left', padding: { top: 5, bottom: 5, }, fixedWidth: 100 } //Player two score display location, design, and text-alignment.
-        this.scoreRight = this.add.text(borderUISize + borderPadding * 103.5, borderUISize + borderPadding * 2, this.p2Score, p2ScoreConfig);
+        this.scoreRight = this.add.text(borderUISize + borderPadding * 363.5, borderUISize + borderPadding * 2, this.p2Score, p2ScoreConfig);
 
 
         //Display text to "FIRE!"
-        let textDisplay = { fontFamily: 'Copperplate', fontSize: '28px', backgroundColor: '#89d5d1', color: 'black', align: 'right', padding: { top: 5, bottom: 5, }, fixedWidth: 100 } //..
-        this.fireUI = this.add.text(borderUISize + borderPadding * 52, borderUISize + borderPadding * 2, 'FIRE!', textDisplay);
+        let textDisplay = { fontFamily: 'Copperplate', fontSize: '28px', backgroundColor: '#89d5d1', color: 'black', align: 'center', padding: { top: 5, bottom: 5, }, fixedWidth: 100 } //..
+        this.fireUI = this.add.text(borderUISize + borderPadding * 181.7, borderUISize + borderPadding * 2, 'FIRE!', textDisplay);
         textDisplay.fixedWidth = 0; //??
 
         //Game Over
