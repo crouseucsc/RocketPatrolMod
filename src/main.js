@@ -4,7 +4,7 @@
 //Time: 20hrs+
 //19 April 2021 17:00
 let config = {
-  type: Phaser.CANVAS,
+  type: Phaser.AUTO,
   width: 1920,
   height: 1080,
   scene: [Menu, Play],
