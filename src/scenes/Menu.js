@@ -65,7 +65,7 @@ class Menu extends Phaser.Scene {
         this.add.text(
             game.config.width / 2,
             game.config.height / 2 - borderUISize * 4 - borderPadding * 4,
-            'ROCKET PATROL',
+            'ROCKET PATROL MOD',
             titleConfig).setOrigin(0.5);
 
         menuConfig.backgroundColor = "#eb7380";
@@ -122,7 +122,7 @@ class Menu extends Phaser.Scene {
 
         if (Phaser.Input.Keyboard.JustDown(keyLEFT)) {
             game.settings = {
-                spaceshipSpeed: 3,
+                spaceshipSpeed: 9,
                 gameTimer: 60000
             }
             this.inMenu = false;
@@ -130,7 +130,7 @@ class Menu extends Phaser.Scene {
         }
         if (Phaser.Input.Keyboard.JustDown(keyRIGHT)) {
             game.settings = {
-                spaceshipSpeed: 4,
+                spaceshipSpeed: 12,
                 gameTimer: 45000
             }
             this.inMenu = false;
