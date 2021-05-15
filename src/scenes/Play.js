@@ -13,7 +13,7 @@ class Play extends Phaser.Scene {
 
     create() {
         //Render background.
-        this.skyfield = this.add.tileSprite(0, 0, 16, 9, 'skyfield').setOrigin(683, 384); //Background dimensions and center-point. 
+        this.skyfield = this.add.tileSprite(0, 0, 1, 1, 'skyfield').setOrigin(20, 20); //Background dimensions and center-point. 
 
         //Render player one and player two rockets.
         this.p1Rocket = new P1Rocket(this, game.config.width / 2 - 341, game.config.height - borderUISize - borderPadding, 'p1Rocket'); //Spawn coordinate.
