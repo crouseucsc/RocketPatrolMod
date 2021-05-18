@@ -211,8 +211,8 @@ class Play extends Phaser.Scene {
             ship.reset();
             ship.alpha = 1;
             boom.destroy();
-        }
-        );
+        });
+        
         this.sound.play('sfx_explosion');
     }
 }
