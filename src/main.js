@@ -1,7 +1,7 @@
 //Christian Rouse
 //CMPM/ARTG - 120 - 02
 //Template Code Credential: Rutvik Katkoriya
-//Time: 20hrs+
+//Time: 35hrs+
 //19 April 2021 17:00
 let config = {
   type: Phaser.CANVAS,
