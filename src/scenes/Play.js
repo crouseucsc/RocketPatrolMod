@@ -54,7 +54,7 @@ class Play extends Phaser.Scene {
             padding: { top: 5, bottom: 5 },
             fixedWidth: 100
         }
-        //Player one score display location, design, and text-alignment.
+        //Player one score display location.
         this.scoreLeft = this.add.text(
             borderUISize + borderPadding,
             borderUISize + borderPadding * 2,
@@ -72,21 +72,20 @@ class Play extends Phaser.Scene {
             padding: { top: 5, bottom: 5, },
             fixedWidth: 100
         }
-        
-        //Player two score display location, design, and text-alignment.
+
+        //Player two score display location.
         this.scoreRight = this.add.text(
             borderUISize + borderPadding * 363.5,
             borderUISize + borderPadding * 2,
             this.p2Score,
             p2ScoreConfig);
 
-
         //Display text to "FIRE!"
         let textDisplay = { fontFamily: 'Copperplate', fontSize: '28px', backgroundColor: '#89d5d1', color: 'black', align: 'center', padding: { top: 5, bottom: 5, }, fixedWidth: 100 } //..
         this.fireUI = this.add.text(borderUISize + borderPadding * 181.7, borderUISize + borderPadding * 2, 'FIRE!', textDisplay);
         textDisplay.fixedWidth = 0; //??
 
-        //Game Over
+        //Game Over and timer.
         this.gameOver = false;
         this.clock = this.time.delayedCall(
             game.settings.gameTimer, () => {
@@ -103,27 +102,17 @@ class Play extends Phaser.Scene {
     }
 
     update() {
-
+        //Check for restart.
         if (this.gameOver && Phaser.Input.Keyboard.JustDown(keyR)) {
             this.scene.restart();
         }
-
-        if ((keyLEFT.isDown && !this.p2Rocket.isFiring) || (keyA.isDown && !this.p1Rocket.isFiring)) {
-            this.skyfield.tilePositionX -= 1;
+        //Check for main menu.
+        if (this.gameOver && Phaser.Input.Keyboard.JustDown(keyLEFT)) {
+            this.scene.start("menuScene");
         }
-
-        if ((keyRIGHT.isDown && !this.p2Rocket.isFiring) || (keyD.isDown && !this.p1Rocket.isFiring)) {
-            this.skyfield.tilePositionX += 1;
-        }
-
-        if ((keyLEFT.isDown && !this.p2Rocket.isFiring) || (keyA.isDown && !this.p1Rocket.isFiring)) {
-            this.skyfield.tilePositionX -= 0.5;
-        }
-
-        if ((keyRIGHT.isDown && !this.p2Rocket.isFiring) || (keyD.isDown && !this.p1Rocket.isFiring)) {
-            this.skyfield.tilePositionX += 0.5;
-        }
-
+        //Skyfield Scrolling
+        this.skyfield.tilePositionX -= 4;
+        //Update Sprites
         if (!this.gameOver) {
             this.p1Rocket.update();
             this.p2Rocket.update();
@@ -131,88 +120,60 @@ class Play extends Phaser.Scene {
             this.ship2.update();
             this.ship3.update();
         }
-
+        //Check Collisions
         if (this.checkCollision(this.p1Rocket, this.ship3)) {
             this.p1Rocket.reset();
             this.shipExplode(this.ship3);
-            this.p1Score += this.ship3.points;
-            this.scoreLeft.text = this.p1Score;
-
-            return true;
-
         }
         if (this.checkCollision(this.p1Rocket, this.ship2)) {
             this.p1Rocket.reset();
             this.shipExplode(this.ship2);
-            this.p1Score += this.ship2.points;
-            this.scoreLeft.text = this.p1Score;
-
-            return true;
-
         }
         if (this.checkCollision(this.p1Rocket, this.ship1)) {
             this.p1Rocket.reset();
             this.shipExplode(this.ship1);
-            this.p1Score += this.ship1.points;
-            this.scoreLeft.text = this.p1Score;
-
-            return true;
         }
         if (this.checkCollision(this.p2Rocket, this.ship3)) {
             this.p2Rocket.reset();
             this.shipExplode(this.ship3);
-            this.p2Score += this.ship3.points;
-            this.scoreRight.text = this.p2Score;
-
-            return true;
         }
-
         if (this.checkCollision(this.p2Rocket, this.ship2)) {
             this.p2Rocket.reset();
             this.shipExplode(this.ship2);
-            this.p2Score += this.ship2.points;
-            this.scoreRight.text = this.p2Score;
-
-            return true;
         }
         if (this.checkCollision(this.p2Rocket, this.ship1)) {
             this.p2Rocket.reset();
             this.shipExplode(this.ship1);
-            this.p2Score += this.ship1.points;
-            this.scoreRight.text = this.p2Score;
-
-            return true;
         }
-
-        if (this.gameOver && Phaser.Input.Keyboard.JustDown(keyLEFT)) {
-            this.scene.start("menuScene");
-        }
-
     }
 
     checkCollision(rocket, ship) {
-        if (rocket.x + rocket.width > ship.x &&
-            rocket.x < ship.x + ship.width &&
-            rocket.y + rocket.height > ship.y &&
-            rocket.y < ship.y + ship.height) {
-            ship.alpha = 0;
-            rocket.reset();
+        // simple AABB checking
+        if (rocket.x < ship.x + ship.width &&
+            rocket.x + rocket.width > ship.x &&
+            rocket.y < ship.y + ship.height &&
+            rocket.height + rocket.y > ship.y) {
             return true;
         } else {
             return false;
         }
     }
-
     shipExplode(ship) {
-        ship.alpha = 0
+        // temporarily hide ship
+        ship.alpha = 0;
+        // create explosion sprite at ship's position
         let boom = this.add.sprite(ship.x, ship.y, 'explosion').setOrigin(0, 0);
-        boom.anims.play('explode');
-        boom.on('animationcomplete', () => {
-            ship.reset();
-            ship.alpha = 1;
-            boom.destroy();
+        boom.anims.play('explode');             // play explode animation
+        boom.on('animationcomplete', () => {    // callback after ani completes
+            ship.reset();                       // reset ship position
+            ship.alpha = 1;                     // make ship visible again
+            boom.destroy();                     // remove explosion sprite
         });
-        
+        // score add and repaint
+        this.p1Score += ship.points;
+        this.scoreLeft.text = this.p1Score;  //WHY WON'T THIS WORK!?!?!?!?!?ASDFGTHJKLQWERTYUIOPZXCVBNM!?!?!??!?!?! I give up. Issa bug. (literally spent 5 days trying to figure out why the score isn't updating, I didn't change anyting significant but it just stopped working, using other students scoring code and even the default scoring of Rocket Patrol didn't work. No errors either. Wth. If you happen to read this can you let me know what was wrong with it? I am at a COMPLETE loss.)
+        this.p2Score += ship.points;
+        this.scoreRight.text = this.p2Score;
         this.sound.play('sfx_explosion');
     }
 }
