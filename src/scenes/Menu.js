@@ -10,11 +10,11 @@ class Menu extends Phaser.Scene {
     }
     create() {
         let menuConfig = {
-            fontFamily: 'Courier',
-            fontSize: '28px',
-            backgroundColor: '#F3B141',
-            color: '#843605',
-            align: 'right',
+            fontFamily: 'Arial',
+            fontSize: '40px',
+            backgroundColor: '#0000FF',
+            color: '#FFFF00',
+            align: 'center',
             padding: {
                 top: 5,
                 bottom: 5,
