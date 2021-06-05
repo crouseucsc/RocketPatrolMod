@@ -1,29 +1,14 @@
-
 class Menu extends Phaser.Scene {
     constructor() {
         super("menuScene");
     }
-
     preload() {
-        this.load.audio('sfx_explosion', 'assets/assets_explosion38.wav');
-        this.load.audio('sfx_rocket', 'assets/assets_rocket_shot.wav');
-        this.load.image('menu_ship', 'assets/jet.png');
-        this.load.image('p1Rocket', 'assets/p1rocket.png');
-        this.load.image('p2Rocket', 'assets/p2rocket.png');
+        // load audio
+        this.load.audio('sfx_select', './assets/assets_blip_select12.wav');
+        this.load.audio('sfx_explosion', './assets/assets_explosion38.wav');
+        this.load.audio('sfx_rocket', './assets/assets_rocket_shot.wav');
     }
-
     create() {
-        
-        this.p1Rocket = this.add.sprite(
-            185,
-            300,
-            'p1Rocket').setOrigin(0.5);
-
-        this.p2Rocket = this.add.sprite(
-            1085,
-            300,
-            'p2Rocket').setOrigin(0.5);
-
         let menuConfig = {
             fontFamily: 'Courier',
             fontSize: '28px',
@@ -36,92 +21,33 @@ class Menu extends Phaser.Scene {
             },
             fixedWidth: 0
         }
-
-        let titleConfig = {
-            fontFamily: 'Copperplate',
-            fontSize: '56px',
-            backgroundColor: 'black',
-            color: 'white',
-            align: 'center',
-            padding: {
-                top: 5,
-                bottom: 5,
-            },
-            fixedWidth: 0
-        }
-
-        this.add.text(
-            game.config.width / 2,
-            game.config.height / 2 - borderUISize * 4 - borderPadding * 4,
-            'ROCKET PATROL MOD',
-            titleConfig).setOrigin(0.5);
-
-        menuConfig.backgroundColor = "#eb7380";
-        menuConfig.color = "white";
-
-        this.add.text(
-            game.config.width / 2 - 305,
-            game.config.height / 2 - 20,
-            '[A] and [D] to move & [W] to fire ',
-            menuConfig).setOrigin(0.5);
-
-        this.add.text(
-            game.config.width / 2 - 490,
-            game.config.height / 2 - 64,
-            'Player One: ',
-            menuConfig).setOrigin(0.5);
-
-        menuConfig.backgroundColor = "#b689d5";
-
-        this.add.text(
-            game.config.width / 2 + 316,
-            game.config.height / 2 - 20,
-            '⇦ ⇨ arrows to move & ⇧ to fire ',
-            menuConfig).setOrigin(0.5);
-
-        this.add.text(
-            game.config.width / 2 + 492,
-            game.config.height / 2 - 64,
-            'Player Two: ',
-            menuConfig).setOrigin(0.5);
-
-        menuConfig.backgroundColor = '#89d5d1';
-        menuConfig.color = 'white';
-
-        this.add.text(
-            game.config.width / 2,
-            game.config.height / 2 + borderUISize * 2 + borderPadding * 2,
-            ' Press ⇦ for Novice or ⇨ for Expert ',
-            menuConfig).setOrigin(0.5);
-
-        this.add.text(
-            game.config.width / 2,
-            game.config.height / 2 + borderUISize * 2 + 64,
-            ' Highest score wins! ',
-            menuConfig).setOrigin(0.5);
-
+        this.add.text(game.config.width / 2, game.config.height / 2 - borderUISize - borderPadding, 'ROCKET PATROL', menuConfig).setOrigin(0.5);
+        this.add.text(game.config.width / 2, game.config.height / 2, 'Use ←→ to move & (F) to fire.', menuConfig).setOrigin(0.5);
+        menuConfig.backgroundColor = '#00FF00';
+        menuConfig.color = '#000';
+        this.add.text(game.config.width / 2, game.config.height / 2 + borderUISize + borderPadding, 'Press ← for Novice or → for Expert', menuConfig).setOrigin(0.5);
+        // define keys
         keyLEFT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.LEFT);
         keyRIGHT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.RIGHT);
     }
-
     update() {
-
         if (Phaser.Input.Keyboard.JustDown(keyLEFT)) {
+            // easy mode
             game.settings = {
-                spaceshipSpeed: 9,
-                gameTimer: 60000
+                spaceshipSpeed: 3,
+                gameTimer: 90000
             }
-            this.inMenu = false;
+            this.sound.play('sfx_select');
             this.scene.start('playScene');
         }
         if (Phaser.Input.Keyboard.JustDown(keyRIGHT)) {
+            // hard mode
             game.settings = {
-                spaceshipSpeed: 12,
-                gameTimer: 45000
+                spaceshipSpeed: 5,
+                gameTimer: 60000
             }
-            this.inMenu = false;
+            this.sound.play('sfx_select');
             this.scene.start('playScene');
-
         }
     }
 }
