@@ -25,5 +25,5 @@ let keyF, keyR, keyLEFT, keyRIGHT, keyW, keyA, keyD; //permitted keys.
 // -Create a new scrolling tile sprite for the background [Blue-ish sky with grey smokey clouds.] (5)
 // -Add your own (copyright-free) background music to the Play scene (5)
 
-//There is no code present that was not provided by instructors for use in this assignment or was not authored by the student (me).
+//There is no code present in this assignment that was not provided by instructors (Rocket Patrol Tutorial) for use in this assignment or was not authored by the student (me).
 //All visual assets are original and custom made by me.
