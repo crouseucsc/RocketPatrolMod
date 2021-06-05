@@ -10,8 +10,8 @@ class Play extends Phaser.Scene {
         this.load.spritesheet('explosion', './assets/explosion.png', { frameWidth: 64, frameHeight: 32, startFrame: 0, endFrame: 9 });
     }
     create() {
-        this.starfield = this.add.tileSprite(0, 0, 720, 480, 'starfield').setOrigin(0, 0);
-        this.add.rectangle(0, borderUISize + borderPadding, game.config.width, borderUISize * 4, 0xFF0000).setOrigin(0, 0);
+        this.starfield = this.add.tileSprite(0, 0, game.config.width, game.config.height, 'starfield').setOrigin(0, 0);
+        this.add.rectangle(0, borderUISize + borderPadding, game.config.width, borderUISize * 1, 0xFF0000).setOrigin(0, 0);
         this.add.rectangle(0, 0, game.config.width, borderUISize, 0xFF0000).setOrigin(0, 0);
         this.add.rectangle(0, game.config.height - borderUISize, game.config.width, borderUISize, 0xFF0000).setOrigin(0, 0);
         this.add.rectangle(0, 0, borderUISize, game.config.height, 0xFF0000).setOrigin(0, 0);
