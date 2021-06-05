@@ -15,7 +15,7 @@ let borderPadding = borderUISize / 3;
 let keyF, keyR, keyLEFT, keyRIGHT; //permitted keys.
 
 //S(hrek) Tier:
-// -Redesign the game's artwork, UI, and sound to change its theme/aesthetic (to something other than sci-fi) [military; jets, missiles, no lasers, actual explosion sound effects, all of which are free domain and use under creative commons.] (60)
+// -Redesign the game's artwork, UI, and sound to change its theme/aesthetic (to something other than sci-fi) [military; jets, missiles, no lasers, actual explosion sound effects, all of which are free domain under creative commons, are royalty and copyright free.] (60)
 
 //Intermediate Tier:
 // -Create new artwork for all of the in-game assets (rocket, spaceships, explosion) [Nothing is reused except for file names to save time on redundant relabelling] (20)
@@ -24,6 +24,7 @@ let keyF, keyR, keyLEFT, keyRIGHT; //permitted keys.
 
 //Starting Tier:
 // -Create a new scrolling tile sprite for the background [Blue-ish sku with grey smokey clouds.] (5)
+// -Add your own (copyright-free) background music to the Play scene (5)
 
 //There is no code present that was not provided by instructors for use in this assignment or was not authored by the student (me).
 //All visual assets are original and custom made by me. 
