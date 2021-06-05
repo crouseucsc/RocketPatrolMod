@@ -3,7 +3,7 @@ class Play extends Phaser.Scene {
         super("playScene");
     }
     preload() {
-        this.load.image('rocket', './assets/p1rocket.png', { height: 64 });
+        this.load.image('rocket', './assets/p1rocket.png', 0, 0, 64, 64);
         this.load.image('spaceship', './assets/jet.png');
         this.load.image('starfield', './assets/skyfield.png');
         // load spritesheet
