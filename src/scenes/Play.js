@@ -10,7 +10,9 @@ class Play extends Phaser.Scene {
         this.load.spritesheet('explosion', './assets/explosion.png', { frameWidth: 64, frameHeight: 32, startFrame: 0, endFrame: 9 });
     }
     create() {
+        //add background
         this.starfield = this.add.tileSprite(0, 0, game.config.width, game.config.height, 'starfield').setOrigin(0, 0);
+        //In-game borders.
         this.add.rectangle(0, borderUISize + borderPadding + 10, game.config.width, borderUISize * 1, 0xFF0000).setOrigin(0, 0);
         this.add.rectangle(0, 0, game.config.width, borderUISize, 0xFF0000).setOrigin(0, 0);
         this.add.rectangle(0, game.config.height - borderUISize, game.config.width, borderUISize, 0xFF0000).setOrigin(0, 0);
@@ -18,6 +20,7 @@ class Play extends Phaser.Scene {
         this.add.rectangle(game.config.width - borderUISize, 0, borderUISize, game.config.height, 0xFF0000).setOrigin(0, 0);
         // add rocket (p1)
         this.p1Rocket = new Rocket(this, game.config.width / 2, game.config.height - borderUISize - borderPadding, 'rocket').setOrigin(0.5, 0);
+        //Add Jets
         this.ship01 = new Spaceship(this, game.config.width + borderUISize * 8, borderUISize * 4, 'spaceship', 0, 30).setOrigin(0, 0);
         this.ship02 = new Spaceship(this, game.config.width + borderUISize * 3, borderUISize * 5 + borderPadding * 2, 'spaceship', 0, 20).setOrigin(0, 0);
         this.ship03 = new Spaceship(this, game.config.width, borderUISize * 8 + borderPadding * 4, 'spaceship', 0, 10).setOrigin(0, 0);
@@ -69,7 +72,7 @@ class Play extends Phaser.Scene {
         }
         this.starfield.tilePositionX -= 10;
         if (!this.gameOver) {
-            this.p1Rocket.update();         // update rocket sprite
+            this.p1Rocket.update();         // update rocket sprite for player 1
             this.ship01.update();           // update spaceships (x3)
             this.ship02.update();
             this.ship03.update();
