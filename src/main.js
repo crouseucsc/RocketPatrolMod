@@ -19,7 +19,7 @@ let keyF, keyR, keyLEFT, keyRIGHT, keyW, keyA, keyD; //permitted keys.
 
 //Intermediate Tier:
 // -Use Phaser's particle emitter to create a particle explosion when the rocket hits the spaceship [Smoke and Fire] (20)
-// -Create a new spaceship type (w/ new artwork) that's smaller, moves faster, and is worth more points (20) (WIP)
+// -Create a new spaceship type (w/ new artwork) that's smaller, moves faster, and is worth more points (20)
 
 //Starting Tier:
 // -Create a new scrolling tile sprite for the background [Blue-ish sky with grey smokey clouds.] (5)
