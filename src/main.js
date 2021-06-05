@@ -12,7 +12,7 @@ let game = new Phaser.Game(config);
 let borderUISize = game.config.height / 15;
 let borderPadding = borderUISize / 3;
 // reserve keyboard vars
-let keyF, keyR, keyLEFT, keyRIGHT; //permitted keys.
+let keyF, keyR, keyLEFT, keyRIGHT, keyW, keyA, keyD; //permitted keys.
 
 //S(hrek) Tier:
 // -Redesign the game's artwork, UI, and sound to change its theme/aesthetic (to something other than sci-fi) [military; jets, missiles, no lasers, actual explosion sound effects, all of which are free domain under creative commons, are royalty and copyright free.] (60)
