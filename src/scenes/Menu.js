@@ -22,8 +22,8 @@ class Menu extends Phaser.Scene {
             },
             fixedWidth: 0
         }
-        this.add.text(game.config.width / 2, game.config.height / 2 - borderUISize - borderPadding, 'ROCKET PATROL MOD REDUX (WIP)', menuConfig).setOrigin(0.5);
-        this.add.text(game.config.width / 2, game.config.height / 2, 'Use ←→ to move & (F) to fire.', menuConfig).setOrigin(0.5);
+        this.add.text(game.config.width / 2, game.config.height / 2 - borderUISize - borderPadding, 'ROCKET PATROL MOD REDUX', menuConfig).setOrigin(0.5);
+        this.add.text(game.config.width / 2, game.config.height / 2, 'Use (A) and (D) to move, and (W) to fire.', menuConfig).setOrigin(0.5);
         menuConfig.backgroundColor = '#0000FF';
         menuConfig.color = '#FFFF00';
         this.add.text(game.config.width / 2, game.config.height / 2 + borderUISize + borderPadding, 'Press ← for Easy or → for Hard', menuConfig).setOrigin(0.5);
@@ -35,7 +35,7 @@ class Menu extends Phaser.Scene {
         if (Phaser.Input.Keyboard.JustDown(keyLEFT)) {
             // easy/beginner mode
             game.settings = {
-                spaceshipSpeed: 3, //independent ship speed. 
+                spaceshipSpeed: 3, //instance ship speed. 
                 gameTimer: 60000
             }
             this.sound.play('sfx_select');
@@ -44,7 +44,7 @@ class Menu extends Phaser.Scene {
         if (Phaser.Input.Keyboard.JustDown(keyRIGHT)) {
             // hard/expert mode
             game.settings = {
-                spaceshipSpeed: 5,//independent ship speed. 
+                spaceshipSpeed: 5,//instance ship speed. 
                 gameTimer: 45000
             }
             this.sound.play('sfx_select');

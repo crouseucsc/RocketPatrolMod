@@ -26,4 +26,4 @@ let keyF, keyR, keyLEFT, keyRIGHT, keyW, keyA, keyD; //permitted keys.
 // -Add your own (copyright-free) background music to the Play scene (5)
 
 //There is no code present that was not provided by instructors for use in this assignment or was not authored by the student (me).
-//All visual assets are original and custom made by me. 
+//All visual assets are original and custom made by me.
