@@ -38,14 +38,14 @@ class Play extends Phaser.Scene {
         let scoreConfig = {
             fontFamily: 'Helvetica',
             fontSize: '30px',
-            backgroundColor: '#F3B141',
-            color: '#843605',
+            backgroundColor: '#FFFF00',
+            color: '#0000FF',
             align: 'right',
             padding: {
                 top: 5,
                 bottom: 10,
             },
-            fixedWidth: 100
+            fixedWidth: 75
         }
         this.scoreLeft = this.add.text(borderUISize + borderPadding, borderUISize + borderPadding * 2, this.p1Score, scoreConfig);
         // GAME OVER flag
